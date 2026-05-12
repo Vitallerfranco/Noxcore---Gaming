@@ -20,10 +20,6 @@ staygaming/
     └── app.js          ← Render, filtros, animaciones
 ```
 
-## Cómo usar
-
-Abrí `index.html` en cualquier navegador. No requiere servidor.
-
 ## Funcionalidades
 
 - Filtro por categoría (PS, Nintendo, PC, Juegos, Accesorios)
