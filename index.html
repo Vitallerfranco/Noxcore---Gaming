@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StayGaming | Consolas, Juegos y Servicio Técnico</title>
+  <meta name="description" content="Tienda gaming en Ituzaingó. Consolas nuevas y usadas, juegos, PC gamer, reparaciones y accesorios. Envíos a todo GBA." />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/products.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon"><img src="assets/Logostay.png" alt="StayGaming"></div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#categorias">Categorías</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#torneos">Torneos</a></li>
+      <li><a href="#resenas">Reseñas</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar%20por%20un%20producto" 
+        target="_blank" class="btn-wsp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.526 5.837L0 24l6.335-1.486A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.359-.213-3.72.873.936-3.62-.234-.371A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        <span class="wsp-text">WhatsApp</span>
+      </a>
+
+      <button class="btn-cart" id="btnCart" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="btn-menu" id="btnMenu" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<nav class="nav-mobile" id="navMobile">
+  <a href="#catalogo">Catálogo</a>
+  <a href="#categorias">Categorías</a>
+  <a href="#servicios">Servicio Técnico</a>
+  <a href="#torneos">Torneos</a>
+  <a href="#resenas">Reseñas</a>
+  <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar" target="_blank" class="btn-wsp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.526 5.837L0 24l6.335-1.486A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.359-.213-3.72.873.936-3.62-.234-.371A9.818 9.818 0 1112 21.818z"/>
+    </svg>
+    Contactar por WhatsApp
+  </a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        Ituzaingó · Buenos Aires
+      </div>
+      <h1 class="hero-title">
+        TU TIENDA<br>
+        <span class="accent">GAMER</span><br>
+        DE CONFIANZA
+      </h1>
+      <p class="hero-desc">
+        Consolas nuevas y usadas, juegos, PC gamer y servicio técnico. 
+        Envíos a todo el Gran Buenos Aires por motomensajería.
+      </p>
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          Ver Catálogo
+        </a>
+        <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar%20por%20un%20producto" 
+          target="_blank" class="btn-secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.526 5.837L0 24l6.335-1.486A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.359-.213-3.72.873.936-3.62-.234-.371A9.818 9.818 0 1112 21.818z"/>
+          </svg>
+          Consultar
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">+1.4K</div>
+          <div class="stat-label">Seguidores</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">+500</div>
+          <div class="stat-label">Ventas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Reseñas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">24hs</div>
+          <div class="stat-label">Respuesta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual card -->
+    <div class="hero-visual">
+      <div class="hero-visual-header">
+        <span>Productos destacados</span>
+        <div class="live-badge">En stock</div>
+      </div>
+      <div class="hero-visual-body">
+        <div class="product-card-mini">
+          <div class="pcard-icon">
+            <img src="assets/PlayStationDiscEdition.webp" alt="PlayStation 5 Disc Edition">
+          </div>
+          <div class="pcard-info">
+            <div class="pcard-name">PlayStation 5 Disc</div>
+            <div class="pcard-tag">Nuevo · Garantía</div>
+          </div>
+          <div class="pcard-price">$580k</div>
+        </div>
+        <div class="product-card-mini">
+          <div class="pcard-icon">
+            <img src="assets/nintendo.webp" alt="Nintendo Switch OLED">
+          </div>
+          <div class="pcard-info">
+            <div class="pcard-name">Nintendo Switch OLED</div>
+            <div class="pcard-tag">Nuevo · Con accesorios</div>
+          </div>
+          <div class="pcard-price">$420k</div>
+        </div>
+        <div class="product-card-mini">
+          <div class="pcard-icon">
+            <img src="assets/pc armada.webp" alt="PC Gamer RTX 4060">
+          </div>
+          <div class="pcard-info">
+            <div class="pcard-name">PC Gamer RTX 4060</div>
+            <div class="pcard-tag">Armada a medida</div>
+          </div>
+          <div class="pcard-price">$1.85M</div>
+        </div>
+        <div class="product-card-mini">
+          <div class="pcard-icon">🔧</div>
+          <div class="pcard-info">
+            <div class="pcard-name">Servicio Técnico</div>
+            <div class="pcard-tag">Todas las consolas</div>
+          </div>
+          <div class="pcard-price">Consultar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-icon">🚀</span>
+      <div class="trust-text">
+        <strong>Envío por moto</strong>
+        <span>GBA y CABA</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✅</span>
+      <div class="trust-text">
+        <strong>Garantía real</strong>
+        <span>Respaldo post-venta</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💳</span>
+      <div class="trust-text">
+        <strong>Medios de pago</strong>
+        <span>Efectivo · Transferencia · MP</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🔧</span>
+      <div class="trust-text">
+        <strong>Service técnico</strong>
+        <span>Todas las consolas</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💬</span>
+      <div class="trust-text">
+        <strong>Respuesta 24hs</strong>
+        <span>Atención por WhatsApp</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📦</span>
+      <div class="trust-text">
+        <strong>Cajas random</strong>
+        <span>Siempre valen más</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CATEGORÍAS ===== -->
+<section id="categorias">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <h2 class="section-title">CATEGORÍAS <span>GAMING</span></h2>
+        <p class="section-sub">Encontrá todo lo que necesitás</p>
+      </div>
+    </div>
+    <div class="categories-grid" id="categoriesGrid"></div>
+  </div>
+</section>
+
+<!-- ===== CATÁLOGO ===== -->
+<section id="catalogo">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <h2 class="section-title">NUESTRO <span>CATÁLOGO</span></h2>
+        <p class="section-sub">Precios actualizados · Stock real</p>
+      </div>
+    </div>
+
+    <div class="products-toolbar">
+      <div class="filter-pills" id="conditionPills"></div>
+      <div class="products-count" id="productsCount"></div>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== BANNERS SERVICIOS + TORNEOS ===== -->
+<div class="tech-banner">
+  <div class="container banner-grid">
+    <!-- Servicio técnico -->
+    <div class="banner-card servicio" id="servicios">
+      <div class="banner-eyebrow">Reparaciones</div>
+      <div class="banner-icon">🔧</div>
+      <h3 class="banner-title">SERVICIO TÉCNICO ESPECIALIZADO</h3>
+      <p class="banner-desc">
+        Reparamos PS4, PS5, Xbox, Nintendo Switch y más. Diagnóstico sin cargo. 
+        Presupuesto por WhatsApp antes de empezar.
+      </p>
+      <div class="banner-features">
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>HDMI, botón power, overheating</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>Limpieza interna y pasta térmica</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>Reparación de lectores y controles</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>Entrega en 24–72hs</span>
+        </div>
+      </div>
+      <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar%20por%20servicio%20t%C3%A9cnico" 
+         target="_blank" class="banner-cta">
+        🔧 Consultar reparación
+      </a>
+    </div>
+
+    <!-- Torneos -->
+    <div class="banner-card torneo" id="torneos">
+      <div class="banner-eyebrow">Próximo evento</div>
+      <div class="banner-icon">🏆</div>
+      <h3 class="banner-title">TORNEO FC 25 ONLINE</h3>
+      <p class="banner-desc">
+        Competí contra la comunidad Stay Gaming. Inscripción por WhatsApp. 
+        Premios reales para los primeros puestos.
+      </p>
+      <div class="banner-features">
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>🥇 1° puesto: $15.000</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>🥈 2° puesto: $8.000</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>🥉 3° puesto: $4.000</span>
+        </div>
+        <div class="banner-feat">
+          <div class="feat-dot"></div>
+          <span>Inscripción: $2.000</span>
+        </div>
+      </div>
+      <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20inscribirme%20al%20torneo%20FC25" 
+         target="_blank" class="banner-cta">
+        🏆 Inscribirme al torneo
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RESEÑAS ===== -->
+<section id="resenas">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <h2 class="section-title">LO QUE <span>DICEN</span></h2>
+        <p class="section-sub">Clientes reales · Zona Oeste y CABA</p>
+      </div>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon">🎮</div>
+          <span class="logo-text">STAYGAMING</span>
+        </div>
+        <p class="footer-desc">
+          Tu tienda gamer de confianza en Ituzaingó. 
+          Consolas, juegos, PC gamer, reparaciones y accesorios.
+        </p>
+        <div class="social-links">
+          <a href="https://instagram.com/staygaming.store" target="_blank" class="social-link" title="Instagram">📸</a>
+          <a href="https://wa.me/5491162855278" target="_blank" class="social-link" title="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <!-- Tienda -->
+      <div class="footer-col">
+        <div class="footer-col-title">Tienda</div>
+        <ul>
+          <li><a href="#catalogo">Catálogo completo</a></li>
+          <li><a href="#categorias">PlayStation</a></li>
+          <li><a href="#categorias">Nintendo</a></li>
+          <li><a href="#categorias">PC Gamer</a></li>
+          <li><a href="#categorias">Accesorios</a></li>
+          <li><a href="#categorias">Cajas Random</a></li>
+        </ul>
+      </div>
+
+      <!-- Servicios -->
+      <div class="footer-col">
+        <div class="footer-col-title">Servicios</div>
+        <ul>
+          <li><a href="#servicios">Servicio Técnico</a></li>
+          <li><a href="#torneos">Torneos</a></li>
+          <li><a href="#contacto">Envíos</a></li>
+          <li><a href="#contacto">Medios de pago</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="footer-col">
+        <div class="footer-col-title">Contacto</div>
+        <div class="footer-contact">
+          <div class="contact-row">
+            <span class="contact-icon">📍</span>
+            <span>Ituzaingó, Buenos Aires, Argentina</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">📱</span>
+            <span>+54 9 11 6285-5278</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">📸</span>
+            <span>@staygaming.store</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">🕐</span>
+            <span>Lun–Sáb 10:00–20:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 StayGaming · Todos los derechos reservados</p>
+      <p class="footer-built">
+        🔥 Sitio desarrollado a medida
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <div class="cart-title">
+      CARRITO <span id="cartTitleCount">0</span>
+    </div>
+    <button class="btn-close-cart" id="btnCloseCart" aria-label="Cerrar carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="cart-body" id="cartBody"></div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-totals">
+      <div class="total-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0</span>
+      </div>
+      <div class="total-row">
+        <span>Envío</span>
+        <span id="cartEnvio">A coordinar</span>
+      </div>
+      <div class="total-row main">
+        <span>TOTAL</span>
+        <span class="total-price" id="cartTotal">$0</span>
+      </div>
+    </div>
+
+    <button class="btn-checkout" id="btnCheckout">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.526 5.837L0 24l6.335-1.486A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.359-.213-3.72.873.936-3.62-.234-.371A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      FINALIZAR POR WHATSAPP
+    </button>
+    <p class="cart-disclaimer">
+      Te enviaremos el detalle del pedido por WhatsApp para coordinar el pago y envío.
+    </p>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast">
+  <span class="toast-icon">🎮</span>
+  <span class="toast-text">Producto agregado</span>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
