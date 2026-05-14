@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StayGaming | Consolas, Juegos y Servicio Técnico</title>
+  <title>NOXCORE | Consolas, Juegos y Servicio Técnico</title>
   <meta name="description" content="Tienda gaming en Ituzaingó. Consolas nuevas y usadas, juegos, PC gamer, reparaciones y accesorios. Envíos a todo GBA." />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/nav.css" />
@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/products.css" />
   <link rel="stylesheet" href="css/cart.css" />
   <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/icons-patch.css" />
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#" class="nav-logo">
-      <div class="logo-icon"><img src="assets/Logostay.png" alt="StayGaming"></div>
+      <div class="logo-icon"><img src="assets/Noxcore.logo.png" alt="NOXCORE"></div>
     </a>
 
     <ul class="nav-links">
@@ -124,53 +125,113 @@
     </div>
 
     <!-- Visual card -->
-    <div class="hero-visual">
-      <div class="hero-visual-header">
-        <span>Productos destacados</span>
-        <div class="live-badge">En stock</div>
-      </div>
-      <div class="hero-visual-body">
-        <div class="product-card-mini">
-          <div class="pcard-icon">
-            <img src="assets/PlayStationDiscEdition.webp" alt="PlayStation 5 Disc Edition">
-          </div>
-          <div class="pcard-info">
-            <div class="pcard-name">PlayStation 5 Disc</div>
-            <div class="pcard-tag">Nuevo · Garantía</div>
-          </div>
-          <div class="pcard-price">$580k</div>
-        </div>
-        <div class="product-card-mini">
-          <div class="pcard-icon">
-            <img src="assets/nintendo.webp" alt="Nintendo Switch OLED">
-          </div>
-          <div class="pcard-info">
-            <div class="pcard-name">Nintendo Switch OLED</div>
-            <div class="pcard-tag">Nuevo · Con accesorios</div>
-          </div>
-          <div class="pcard-price">$420k</div>
-        </div>
-        <div class="product-card-mini">
-          <div class="pcard-icon">
-            <img src="assets/pc armada.webp" alt="PC Gamer RTX 4060">
-          </div>
-          <div class="pcard-info">
-            <div class="pcard-name">PC Gamer RTX 4060</div>
-            <div class="pcard-tag">Armada a medida</div>
-          </div>
-          <div class="pcard-price">$1.85M</div>
-        </div>
-        <div class="product-card-mini">
-          <div class="pcard-icon">🔧</div>
-          <div class="pcard-info">
-            <div class="pcard-name">Servicio Técnico</div>
-            <div class="pcard-tag">Todas las consolas</div>
-          </div>
-          <div class="pcard-price">Consultar</div>
-        </div>
+    <!-- ===== HERO VISUAL — reemplaza el bloque .hero-visual en index.html ===== -->
+<div class="hero-visual">
+ 
+  <!-- Header -->
+  <div class="hero-visual-header">
+    <div class="hvh-left">
+      <span class="hvh-label">DESTACADOS</span>
+      <div class="hvh-underline"></div>
+    </div>
+    <div class="hv-header-right">
+      <div class="live-badge">
+        <span class="live-dot"></span>EN STOCK
       </div>
     </div>
   </div>
+ 
+  <!-- Cards -->
+  <div class="hero-visual-body">
+ 
+    <!-- Card 1: PS5 -->
+    <div class="product-card-mini">
+      <div class="pcard-glow"></div>
+      <div class="pcard-img-wrap">
+        <img src="assets/PlayStationDiscEdition.webp" alt="PlayStation 5 Disc Edition" class="pcard-img">
+      </div>
+      <div class="pcard-info">
+        <div class="pcard-name">PlayStation 5 Disc</div>
+        <div class="pcard-tag">
+          <span class="pcard-dot pcard-dot--green"></span>Nuevo · Garantía oficial
+        </div>
+      </div>
+      <div class="pcard-right">
+        <div class="pcard-price">$580k</div>
+        <div class="pcard-cta">Ver →</div>
+      </div>
+    </div>
+ 
+    <!-- Card 2: Nintendo -->
+    <div class="product-card-mini">
+      <div class="pcard-glow"></div>
+      <div class="pcard-img-wrap">
+        <img src="assets/nintendo.webp" alt="Nintendo Switch OLED" class="pcard-img">
+      </div>
+      <div class="pcard-info">
+        <div class="pcard-name">Nintendo Switch OLED</div>
+        <div class="pcard-tag">
+          <span class="pcard-dot pcard-dot--green"></span>Nuevo · Con accesorios
+        </div>
+      </div>
+      <div class="pcard-right">
+        <div class="pcard-price">$420k</div>
+        <div class="pcard-cta">Ver →</div>
+      </div>
+    </div>
+ 
+    <!-- Card 3: PC Gamer -->
+    <div class="product-card-mini">
+      <div class="pcard-glow"></div>
+      <div class="pcard-img-wrap">
+        <img src="assets/pc armada.webp" alt="PC Gamer RTX 4060" class="pcard-img">
+      </div>
+      <div class="pcard-info">
+        <div class="pcard-name">PC Gamer RTX 4060</div>
+        <div class="pcard-tag">
+          <span class="pcard-dot pcard-dot--blue"></span>Armada a medida
+        </div>
+      </div>
+      <div class="pcard-right">
+        <div class="pcard-price">$1.85M</div>
+        <div class="pcard-cta">Ver →</div>
+      </div>
+    </div>
+ 
+    <!-- Card 4: Servicio -->
+    <div class="product-card-mini">
+      <div class="pcard-glow"></div>
+      <div class="pcard-img-wrap pcard-img-wrap--emoji">
+        <span class="pcard-emoji">🔧</span>
+      </div>
+      <div class="pcard-info">
+        <div class="pcard-name">Servicio Técnico</div>
+        <div class="pcard-tag">
+          <span class="pcard-dot pcard-dot--yellow"></span>Todas las consolas
+        </div>
+      </div>
+      <div class="pcard-right">
+        <div class="pcard-price pcard-price--muted">Consultar</div>
+        <div class="pcard-cta">Ver →</div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <!-- Footer -->
+  <div class="hero-visual-footer">
+    <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar%20por%20un%20producto"
+       target="_blank" class="hvf-wsp">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.555 4.112 1.526 5.837L0 24l6.335-1.486A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.359-.213-3.72.873.936-3.62-.234-.371A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      Consultar por WhatsApp
+    </a>
+    <span class="hvf-envio">🚀 Envíos GBA y CABA</span>
+  </div>
+ 
+</div>
 </section>
 
 <!-- ===== TRUST STRIP ===== -->
@@ -284,7 +345,7 @@
         </div>
       </div>
       <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20consultar%20por%20servicio%20t%C3%A9cnico" 
-         target="_blank" class="banner-cta">
+        target="_blank" class="banner-cta">
         🔧 Consultar reparación
       </a>
     </div>
@@ -317,7 +378,7 @@
         </div>
       </div>
       <a href="https://wa.me/5491162855278?text=Hola!%20Quiero%20inscribirme%20al%20torneo%20FC25" 
-         target="_blank" class="banner-cta">
+      target="_blank" class="banner-cta">
         🏆 Inscribirme al torneo
       </a>
     </div>
@@ -344,15 +405,14 @@
       <!-- Brand -->
       <div class="footer-brand">
         <div class="footer-logo">
-          <div class="logo-icon">🎮</div>
-          <span class="logo-text">STAYGAMING</span>
+          <div class="logo-icon"><img src="assets/Noxcore.logo.png" alt="NOXCORE"></div>
         </div>
         <p class="footer-desc">
           Tu tienda gamer de confianza en Ituzaingó. 
           Consolas, juegos, PC gamer, reparaciones y accesorios.
         </p>
         <div class="social-links">
-          <a href="https://instagram.com/staygaming.store" target="_blank" class="social-link" title="Instagram">📸</a>
+          <a href="https://instagram.com/noxcore.store" target="_blank" class="social-link" title="Instagram">📸</a>
           <a href="https://wa.me/5491162855278" target="_blank" class="social-link" title="WhatsApp">💬</a>
         </div>
       </div>
@@ -395,7 +455,7 @@
           </div>
           <div class="contact-row">
             <span class="contact-icon">📸</span>
-            <span>@staygaming.store</span>
+            <span>@noxcore.store</span>
           </div>
           <div class="contact-row">
             <span class="contact-icon">🕐</span>
@@ -406,9 +466,9 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 StayGaming · Todos los derechos reservados</p>
+      <p>© 2025 NOXCORE · Todos los derechos reservados</p>
       <p class="footer-built">
-        🔥 Sitio desarrollado a por VitaDev
+        Desarrollado por VitaDev
       </p>
     </div>
   </div>
@@ -469,5 +529,32 @@
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/app.js"></script>
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+  const lenis = new Lenis({
+    duration: 1.4,       // velocidad del scroll (más alto = más lento/suave)
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // curva de inercia
+    smooth: true,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Para que los links ancla también sean suaves con Lenis
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const destino = document.querySelector(this.getAttribute('href'));
+      if (destino) {
+        lenis.scrollTo(destino, { offset: -80 }); // -80 compensa tu navbar
+      }
+    });
+  });
+</script>
+<script src="js/hero.js"></script>
 </body>
 </html>

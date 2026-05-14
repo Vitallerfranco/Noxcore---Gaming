@@ -81,7 +81,7 @@ function renderProducts() {
   if (filtered.length === 0) {
     grid.innerHTML = `
       <div class="no-results">
-        <div class="nr-icon">🔍</div>
+        <div class="nr-icon">${ICONS.busqueda}</div>
         <p>No hay productos en esta categoría</p>
       </div>
     `;
@@ -115,13 +115,10 @@ function renderProducts() {
               <span class="price-current">${formatPrice(product.price)}</span>
               ${product.originalPrice ? `<span class="price-original">${formatPrice(product.originalPrice)}</span>` : ''}
             </div>
-            <button class="btn-add-cart" 
+            <button class="btn-add-cart"
                     onclick="cart.add(${JSON.stringify(JSON.stringify(product))})"
                     ${!product.inStock ? 'disabled' : ''}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
+              ${ICONS.carrito}
               <span class="add-text">${product.inStock ? 'Agregar' : 'Sin stock'}</span>
             </button>
           </div>
@@ -130,7 +127,6 @@ function renderProducts() {
     `;
   }).join('');
 
-  // Trigger reveal animations
   setTimeout(() => {
     document.querySelectorAll('#productsGrid .reveal').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), i * 60);
@@ -147,16 +143,50 @@ function renderReviews() {
   const grid = document.getElementById('reviewsGrid');
   if (!grid) return;
 
-  grid.innerHTML = REVIEWS.map(r => `
-    <div class="review-card reveal">
-      <div class="review-stars">${'⭐'.repeat(r.stars)}</div>
-      <p class="review-text">"${r.text}"</p>
-      <div class="review-author">
-        <div class="review-avatar">${r.avatar}</div>
-        <div>
-          <div class="review-name">${r.name}</div>
-          <div class="review-location">📍 ${r.location}</div>
+  grid.innerHTML = REVIEWS.map(r => {
+    const stars = Array.from({ length: r.stars }, () =>
+      `<span class="review-star">${ICONS.star}</span>`
+    ).join('');
+
+    return `
+      <div class="review-card reveal">
+        <div class="review-stars">${stars}</div>
+        <p class="review-text">"${r.text}"</p>
+        <div class="review-author">
+          <div class="review-avatar">${r.avatar}</div>
+          <div>
+            <div class="review-name">${r.name}</div>
+            <div class="review-location">
+              <span class="review-location-icon">${ICONS.ubicacion}</span>
+              ${r.location}
+            </div>
+          </div>
         </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* -------- TRUST STRIP con iconos SVG -------- */
+function renderTrustStrip() {
+  const items = [
+    { icon: ICONS.moto,      title: 'Envío por moto',   sub: 'GBA y CABA' },
+    { icon: ICONS.garantia,  title: 'Garantía real',    sub: 'Respaldo post-venta' },
+    { icon: ICONS.pago,      title: 'Medios de pago',   sub: 'Efectivo · Transferencia · MP' },
+    { icon: ICONS.servicio,  title: 'Service técnico',  sub: 'Todas las consolas' },
+    { icon: ICONS.respuesta, title: 'Respuesta 24hs',   sub: 'Atención por WhatsApp' },
+    { icon: ICONS.caja,      title: 'Cajas random',     sub: 'Siempre valen más' },
+  ];
+
+  const strip = document.querySelector('.trust-inner');
+  if (!strip) return;
+
+  strip.innerHTML = items.map(item => `
+    <div class="trust-item">
+      <span class="trust-icon">${item.icon}</span>
+      <div class="trust-text">
+        <strong>${item.title}</strong>
+        <span>${item.sub}</span>
       </div>
     </div>
   `).join('');
@@ -214,7 +244,7 @@ cart.add = function(productJson) {
   } else {
     product = productJson;
   }
-  
+
   const existing = this.items.find(i => i.id === product.id);
   if (existing) {
     existing.qty++;
@@ -222,13 +252,26 @@ cart.add = function(productJson) {
     this.items.push({ ...product, qty: 1 });
   }
   this.render();
-  this.showToast(`${product.name} agregado 🎮`);
+
+  const toastIcon = document.querySelector('.toast-icon');
+  if (toastIcon) toastIcon.innerHTML = ICONS.gaming;
+
+  const toastText = document.querySelector('.toast-text');
+  if (toastText) toastText.textContent = `${product.name} agregado`;
+
+  const toast = document.getElementById('toast');
+  if (toast) {
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
   this.open();
 }.bind(cart);
 
 /* -------- INIT -------- */
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
+  renderTrustStrip();
   renderCategories();
   renderPills();
   renderProducts();

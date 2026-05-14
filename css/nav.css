@@ -30,10 +30,10 @@
   flex-shrink: 0;
 }
 .nav-logo .logo-icon {
-  width: 120px;
+  width: 300px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(162, 89, 255, 0.6));
+  filter: drop-shadow(0 0 10px rgba(226, 204, 76, 0.6));
 }
 
 .nav-logo .logo-text {
