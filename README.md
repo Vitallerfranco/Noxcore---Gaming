@@ -1,4 +1,4 @@
-# StayGaming — Demo Web
+# NOXCORE — Demo Web
 
 Sitio demo para presentar al cliente **StayGaming** (@staygaming.store, Ituzaingó, GBA).
 
